@@ -6,28 +6,43 @@ function App() {
   const [init, setInit] = useState(false); //아직 초기화되지 않음
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
+  const auth = getAuth();
   useEffect(() => {
-    const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if(user) {
-        setIsLoggedIn(true);
-        setUserObj(user);
-        if(isLoggedIn && user.displayName === null){ //google이나 github으로 로그인하지않고 이메일로 로그인 시 displayName이 null이 되는 경우
-          const at = user.email.indexOf("@");
-          const end = user.email.substring(0, at);
-          updateProfile(auth.currentUser, {
-            displayName: end,
-          });
-        }
+        
+          setUserObj({
+          displayName: user.displayName,
+          uid: user.uid,
+          updateProfile: (args) => updateProfile(user, {
+            displayName: user.displayName,
+          }),
+        });
+ 
+          
+        console.log(user);
+        console.log(userObj);
+        
       } else {
-        setIsLoggedIn(false);
+        setUserObj(null);
       }
       setInit(true);
     });
   }, []);
+  const refreshUser = () => {
+    const user = auth.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) => updateProfile(user, {
+        displayName: user.displayName,
+      }),
+    });
+  };
+
   return (
     <>
-      {init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : "Initializing..."}
+      {init ? <AppRouter refreshUser={refreshUser} isLoggedIn={Boolean(userObj)} userObj={userObj} /> : "Initializing..."}
       <footer>&copy; {new Date().getFullYear()}</footer>
     </>
   );

@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import {getAuth, updateProfile} from 'firebase/auth';
 import { authService, dbService } from '../firebase';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default({userObj}) => {
+export default({refreshUser, userObj}) => {
     const auth = getAuth();
+    const navigate = useNavigate();
     const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
-    const onLogOutClick = () => authService.signOut();    
+    const onLogOutClick = () => {
+        authService.signOut();
+        refreshUser();
+        navigate("/");
+    };
     const getMyDweets = async() => {
         const dweets = await dbService
         .collection("dweets")
@@ -31,6 +36,7 @@ export default({userObj}) => {
             await updateProfile(auth.currentUser,{
                 displayName: newDisplayName,
             });
+            refreshUser();
         }
     };
     

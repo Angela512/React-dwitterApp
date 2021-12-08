@@ -8,7 +8,7 @@ const Dweet = ({ dweetObj, isOwner }) => {
         const ok = window.confirm("Are you sure you want to delete this dweet?");
         if(ok){
             await dbService.doc(`dweets/${dweetObj.id}`).delete();
-            await storageService.ref(dweetObj.fileUrl).delete();
+            await storageService.refFromURL(dweetObj.fileUrl).delete();
         }
     };
 
