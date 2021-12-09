@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { dbService, storageService } from '../firebase';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Dweet = ({ dweetObj, isOwner }) => {
     const [editing, setEditing] = useState(false); //edit모드인지 아닌지 return
@@ -29,28 +31,34 @@ const Dweet = ({ dweetObj, isOwner }) => {
     
 
     return (
-    <div>{
+    <div className="dweet">{
         editing ? (
             <>
-        <form onSubmit={onSubmit}>
-            <input type="text"
+        <form onSubmit={onSubmit} className="container dweetEdit">
+            <input className="formInput"
+            type="text"
             placeholder="Edit your Dweet" 
             value={newDweet} 
             onChange={onChange}
+            autoFocus
             required />
-            <input type="submit" value="Update Dweet" />
+            <input className="formBtn" type="submit" value="Update Dweet" />
         </form>
-        <button onClick={toggleEditing}>Cancel</button>
+        <span className="formBtn calcelBtn" onClick={toggleEditing}>Cancel</span>
         </>
          ) : (
             <>
             <h4>{dweetObj.text}</h4>
-            {dweetObj.fileUrl && <img src={dweetObj.fileUrl} width="50px" height="50px" /> }
+            {dweetObj.fileUrl && <img src={dweetObj.fileUrl} /> }
             {isOwner && (
-                <>
-                <button onClick={onDeleteClick}>Delete Dweet</button>
-                <button onClick={toggleEditing}>Edit Dweet</button>
-                </>
+                <div class="dweet__actions">
+                    <span onClick={onDeleteClick}>
+                    <FontAwesomeIcon icon={faTrash} />
+                    </span>
+                    <span onClick={toggleEditing}>
+                    <FontAwesomeIcon icon={faPencilAlt} />
+                    </span>
+                </div>
             )}
             </>
         )}

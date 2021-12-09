@@ -17,15 +17,15 @@ const Home = ({userObj}) => {
     
 
     return ( //attach가 있을때만 img띄움
-        <div>
-        <DweetForm userObj={userObj} />
-        <div>
-            {dweets.map(dweet => (
-            <Dweet key={dweet.id} 
-            dweetObj={dweet} 
-            isOwner={dweet.creatorId === userObj.uid}/>
-            ))}
-        </div>
+        <div className="container">
+            <DweetForm userObj={userObj} />
+            <div style={{ marginTop: 30 }}>
+                {dweets.map(dweet => (
+                <Dweet key={dweet.id} 
+                dweetObj={dweet} 
+                isOwner={dweet.creatorId === userObj.uid}/>
+                ))}
+            </div>
         </div>
     );
 };

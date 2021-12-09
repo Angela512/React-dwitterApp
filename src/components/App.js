@@ -4,7 +4,6 @@ import {getAuth, onAuthStateChanged, updateProfile} from 'firebase/auth';
 
 function App() {
   const [init, setInit] = useState(false); //아직 초기화되지 않음
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
   const auth = getAuth();
   useEffect(() => {
@@ -43,7 +42,6 @@ function App() {
   return (
     <>
       {init ? <AppRouter refreshUser={refreshUser} isLoggedIn={Boolean(userObj)} userObj={userObj} /> : "Initializing..."}
-      <footer>&copy; {new Date().getFullYear()}</footer>
     </>
   );
 }
