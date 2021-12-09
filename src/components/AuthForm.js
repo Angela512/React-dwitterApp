@@ -32,24 +32,6 @@ const AuthForm = () => {
                 setError(error.message)
             });
         }
-        
-        /*
-        try{
-            const auth = getAuth();
-            let data;
-            if(newAccount){
-                data = await createUserWithEmailAndPassword( email, password);
-            } else{
-                data = await signInWithEmailAndPassword( email, password);
-            }
-            console.log(data);
-        } catch(e){
-            const errorCode = e.code;
-            const errorMessage = e.message;
-            console.log(errorCode);
-            console.log(errorMessage);
-        }
-        */
     }
     const onChange = (event) => {
         const {target: {name, value}} = event;
