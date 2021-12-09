@@ -41,7 +41,18 @@ function App() {
 
   return (
     <>
-      {init ? <AppRouter refreshUser={refreshUser} isLoggedIn={Boolean(userObj)} userObj={userObj} /> : "Initializing..."}
+      {init ? (
+      <AppRouter style={{
+        alignItem: "center",
+      }} 
+      refreshUser={refreshUser} 
+      isLoggedIn={Boolean(userObj)} 
+      userObj={userObj} /> 
+      ) : ( <div className="appLoading">
+        Loading...
+      </div>
+      
+      )}
     </>
   );
 }

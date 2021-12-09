@@ -9,16 +9,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
     return(
         <Router>
             {isLoggedIn && <Navigation userObj={userObj} />}
-            <div
-                    style={{
-                    maxWidth: 890,
-                    width: "100%",
-                    margin: "0 auto",
-                    marginTop: 80,
-                    display: "flex",
-                    justifyContent: "center",
-                    }}
-                >
+            <div className="router__container">
             <Routes>
                 {isLoggedIn ? (
                 <>
