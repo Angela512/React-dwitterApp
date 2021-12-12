@@ -18,7 +18,7 @@ const Auth = () => {
         }
         const data = await signInWithPopup(auth, provider);
         console.log(data);
-        //<i class="fas fa-spinner"></i>
+        
     }
     return (
         <div className="authContainer">

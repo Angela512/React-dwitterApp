@@ -5,6 +5,7 @@ import DweetForm from '../components/DweetForm';
 
 const Home = ({userObj}) => {
     const [dweets, setDweets] = useState([]);
+
     useEffect(() => {
         dbService.collection("dweets").orderBy("createdAt","desc").onSnapshot((snapshot) => {
             const dweetArray = snapshot.docs.map(doc => ({
