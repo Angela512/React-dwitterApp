@@ -4,42 +4,44 @@
 
 ## 구현한 기능
 
-Email, Google, Github, Social Authentication
+* Email, Google, Github, Social Authentication
 
-Tweet CRUD
+* Tweet CRUD
 
-Profile Page
+* Profile Page
 
-File Upload
+* File Upload
 
-Deploy
+* Deploy
 
 ## 공부한 이론
 
-Firebase
+* Firebase
 
-Cloud Firestore
+* Cloud Firestore
 
-Fire Authentication
+* Fire Authentication
 
-Google Cloud Storage
+* Google Cloud Storage
 
 ## 사용한 기술
 
-React js
+* React js
 
-React Hooks
+* React Hooks
 
-React Router
+* React Router
 
-Firebase
+* Firebase
 
-Create React App
+* Create React App
 
-Github Pages
+* Github Pages
 
 ## 사용 이미지
 
-<img src="https://user-images.githubusercontent.com/57383916/145741709-9a89bc96-775d-4000-87b8-27348b761aa9.jpg" width="400" height="200" /><img src="https://user-images.githubusercontent.com/57383916/145741907-4eed0939-3ee0-4032-a2ae-24d39e1fa33a.jpg" width="400" height="200" />
+<img src="https://user-images.githubusercontent.com/57383916/145741709-9a89bc96-775d-4000-87b8-27348b761aa9.jpg" width="400" height="200" />
+
+<img src="https://user-images.githubusercontent.com/57383916/145741907-4eed0939-3ee0-4032-a2ae-24d39e1fa33a.jpg" width="400" height="200" />
 
 <img src="https://user-images.githubusercontent.com/57383916/145741949-52ef2cd8-a05b-4fa7-a931-02e702371d92.png" width="200" height="400" /><img src="https://user-images.githubusercontent.com/57383916/145742015-b05d6103-c5bc-4337-87e1-1d01c0ee814e.png" width="200" height="400" />
