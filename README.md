@@ -40,4 +40,4 @@ Github Pages
 
 ## 사용 이미지
 
-<ima src="https://user-images.githubusercontent.com/57383916/145741709-9a89bc96-775d-4000-87b8-27348b761aa9.jpg" width="400" height="200" />
+<img src="https://user-images.githubusercontent.com/57383916/145741709-9a89bc96-775d-4000-87b8-27348b761aa9.jpg" width="400" height="200" />
